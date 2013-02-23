@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    var count = 1;
+    var count = 2;
 
     var $addCall = $('#addCall');
     var $textGroup = $('#textGroup');
