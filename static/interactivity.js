@@ -4,6 +4,14 @@ $(document).ready(function(){
 
     var $addCall = $('#addCall');
     var $textGroup = $('#textGroup');
+    var $about = $('#about');
+    var $aboutButton = $('#aboutButton');
+
+    $about.hide();
+
+    $aboutButton.click(function(){
+        $about.slideToggle('slow');
+    });
 
     $addCall.click(function(){
 
