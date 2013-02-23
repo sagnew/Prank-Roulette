@@ -3,6 +3,7 @@ from flask import render_template
 from flask import request
 from flask import redirect
 import os
+import twilio_wrapper
 
 app = Flask(__name__)
 
@@ -20,11 +21,14 @@ def prank():
     call5 = request.form['caller5']
     potentialCallers = [userNumber, call1, call2, call3, call4, call5]
     callers = []
-    selected = request.form['states']
+    state = request.form['states']
 
     for caller in potentialCallers:
         if not caller == "":
-            callers.append(caller)
+            callers.append(str(caller))
+
+    print callers
+    twilio_wrapper.setUpCall(int(state), callers)
     return render_template('index.html')
 
 if __name__ == '__main__':

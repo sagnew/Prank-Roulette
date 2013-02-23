@@ -24,7 +24,7 @@ def setUpCall(from_state, numbers):
 	room_number += 1
 	if room_number > 100000:
 		room_number = 0;
-	for num in numbers: 
+	for num in numbers:
 		num = cleanUpNum(num)
 		if len(num) == 10 and num.isdigit():
 			call = client.calls.create(to= "+1" + num,
