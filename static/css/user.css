@@ -1,0 +1,80 @@
+/* Basic style rule to outline and space block-level elements */
+[class*="span"] {
+	background: #eee;
+	margin-bottom: 10px;
+}
+
+/* Basic background colors for responsive break points */
+/* Max-width 480px landscape phone and down */
+@media (max-width: 480px) {
+	.container {
+		background: #f1ea81;
+	}
+	
+	.container:after {
+		content: "Max-width 480px landscape phone and down";
+	}
+}
+
+/* Min-width 481px and max-width 767px landscape phone to portrait tablet */
+@media (min-width: 481px) and (max-width: 767px) {
+	.container {
+		background: #a7f7e5;
+	}
+	
+	.container:after {
+		content: "Min-width 481px and max-width 767px landscape phone to portrait tablet";
+	}
+}
+
+/* Min-width 768px and max-width 979px portrait tablet to landscape */
+@media (min-width: 768px) and (max-width: 979px) {
+	.container {
+		background: #c4deff;
+	}
+	
+	.container:after {
+		content: "Min-width 768px and max-width 979px, portrait tablet to landscape";
+	}
+}
+
+/* Min-width 980px widescreen display */
+@media (min-width: 980px) and (max-width: 1199px) {
+  .container {
+		background: #fde3ff;
+	}
+	
+	.container:after {
+		content: "Min-width 980px, max-width 1199px, desktop format";
+	}
+}
+
+/* Min-width 1200px widescreen display */
+@media (min-width: 1200px) {
+  .container {
+		background: #fff;
+	}
+	
+	.container:after {
+		content: "Min-width 1200px, widescreen format";
+	}
+}
+
+/* Nav background color */
+header [class*="span"],
+nav [class*="span"] {
+	background: #fff;
+}
+
+/* Search box */
+header input {
+	margin-top: 20px;
+	width: 70%;
+	float: left;
+}
+
+/* Login button */
+header a {
+	float: right;
+	margin: 20px 0 0 20px;
+}
