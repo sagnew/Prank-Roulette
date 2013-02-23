@@ -20,13 +20,14 @@ def prank():
     call5 = request.form['caller5']
     potentialCallers = [userNumber, call1, call2, call3, call4, call5]
     callers = []
+    selected = request.form['states']
 
     for caller in potentialCallers:
         if not caller == "":
             callers.append(caller)
-    return render_templat('index.html')
+    return render_template('index.html')
 
 if __name__ == '__main__':
 	port = int(os.environ.get("PORT",5000))
-	app.run(host='0.0.0.0', port=port)
+	app.run(host='0.0.0.0', port=port, debug="true")
 

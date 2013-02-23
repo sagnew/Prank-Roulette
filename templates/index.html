@@ -17,11 +17,23 @@
             <div class="container">
                 <h1 id="banner">Prank Roulette!</h1>
 
-                <div id='userNumberDiv' class="hero-unit">
-                    <h2>What is your phone number?</h2>
-                    <h5> (Don't forget to turn your phone on mute when you receive the call!) </h5>
-                    <input type="text" name='userNumber' id='userNumber' placeholder="Your phone number to listen in">
-                    <br>
+                <div id="containerTop" class="hero-unit">
+
+                    <div id='userNumberDiv'>
+                        <h2>What is your phone number?</h2>
+                        <h5> (Don't forget to turn your phone on mute when you receive the call!) </h5>
+                        <input type="text" name='userNumber' id='userNumber' placeholder="So you can listen in!">
+                        <br>
+                    </div>
+
+                    <div id="selectDiv">
+                        <select name="states">
+                            <option value="0">Select state</option>
+                            <option value="0">California</option>
+                            <option value="1">Pennsylvania</option>
+                        </select>
+                    </div>
+
                 </div>
 
                 <div id='textGroup' class='hero-unit'>
@@ -35,6 +47,14 @@
                         <button class="btn btn-success" type="button" id="addCall" name="addCall">Add Call</button>
                     </div>
                 </div>
+
+                <div>
+                    <input type="hidden" id="hidden2" name="caller2" value=""/>
+                    <input type="hidden" id="hidden3" name="caller3" value=""/>
+                    <input type="hidden" id="hidden4" name="caller4" value=""/>
+                    <input type="hidden" id="hidden5" name="caller5" value=""/>
+                </div>
+
         </form>
         <script src="/static/js/vendor/jquery-1.8.2.min.js" type="text/javascript"></script>
         <script src="/static/js/bootstrap/bootstrap.js" type="text/javascript"></script>

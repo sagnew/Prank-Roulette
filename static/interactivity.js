@@ -17,6 +17,9 @@ $(document).ready(function(){
                 placeholder: 'Number '+count
             }));
 
+            //To deal with the hidden fields I made
+            $('hidden'+count).attr("name", "hidden"+count);
+
         }
 
     });
