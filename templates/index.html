@@ -1,0 +1,44 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+        <title>Prank Roulette</title>
+
+        <link rel="stylesheet" href="/static/css/bootstrap.css" type="text/css" media="screen" title="master" charset="utf-8">
+        <link rel="stylesheet" href="/static/css/bootstrap-responsive.css" type="text/css" media="screen" title="master" charset="utf-8">
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        <script type="text/javascript" src="/static/interactivity.js"></script>
+    </head>
+
+    <body style="background-image:url(static/imgs/escheresque.png);padding:5px;border:1px solid black;">
+        {% block content %}
+        <form name="form" method="POST" action="/prank">
+            <div class="container">
+                <h1 id="banner">Prank Roulette!</h1>
+
+                <div id='userNumberDiv' class="hero-unit">
+                    <h2>What is your phone number?</h2>
+                    <h5> (Don't forget to turn your phone on mute when you receive the call!) </h5>
+                    <input type="text" name='userNumber' id='userNumber' placeholder="Your phone number to listen in">
+                    <br>
+                </div>
+
+                <div id='textGroup' class='hero-unit'>
+                    <h2>Enter up to 5 phone numbers:</h2>
+                    <input type="text" name="caller1" id="caller1" placeholder="Number 1">
+                </div>
+
+                <div class="btn-toolbar">
+                    <div class="btn-group">
+                        <button class="btn btn-primary" type="submit" id='prank'>Prank!</button>
+                        <button class="btn btn-success" type="button" id="addCall" name="addCall">Add Call</button>
+                    </div>
+                </div>
+        </form>
+        <script src="/static/js/vendor/jquery-1.8.2.min.js" type="text/javascript"></script>
+        <script src="/static/js/bootstrap/bootstrap.js" type="text/javascript"></script>
+        <script type=text/javascript src="{{ url_for('static', filename='jquery.js') }}"></script>
+        {% endblock %}
+    </body>
+</html>
