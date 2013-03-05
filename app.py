@@ -31,6 +31,10 @@ def prank():
     twilio_wrapper.setUpCall(int(state), callers)
     return render_template('index.html')
 
+@app.route('/donate', methods=['POST', 'GET'])
+def donate():
+    return render_template('index.html')
+
 if __name__ == '__main__':
 	port = int(os.environ.get("PORT",5000))
 	app.run(host='0.0.0.0', port=port, debug="true")
