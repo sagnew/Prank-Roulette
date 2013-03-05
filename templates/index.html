@@ -26,55 +26,56 @@
                 <div id="about" class="hero-unit">
                     <p>
                     <h5>PrankRoulette allows you to set up 2-5 numbers on a conference call and listen in on the results!  Put together two restaurants, two old friends, or even your friend and his/her ex! The best part? They have no idea who is calling them - all they see is an incoming call from PA or CA.
-                    <br>
-                    Disclaimer: PrankRoulette, and its developers take no responsibility for the fallout of your actions. That is on YOU! Please prank responsibly.</h5>
+                        <br>
+                        Disclaimer: PrankRoulette, and its developers take no responsibility for the fallout of your actions. That is on YOU! Please prank responsibly.</h5>
                     </p>
                 </div>
+                <div id="everythingElse">
 
-                <div id="containerTop" class="hero-unit">
+                    <div id="containerTop" class="hero-unit">
 
+                        <div id='userNumberDiv'>
+                            <h2>What is your phone number?</h2>
+                            <h5> (Don't forget to turn your phone on mute when you receive the call!) </h5>
+                            <input type="text" name='userNumber' id='userNumber' placeholder="So you can listen in!">
+                            <br>
+                        </div>
 
-                    <div id='userNumberDiv'>
-                        <h2>What is your phone number?</h2>
-                        <h5> (Don't forget to turn your phone on mute when you receive the call!) </h5>
-                        <input type="text" name='userNumber' id='userNumber' placeholder="So you can listen in!">
+                        <div id="selectDiv">
+                            <select name="states">
+                                <option value="1">Select state</option>
+                                <option value="1">California</option>
+                                <option value="0">Pennsylvania</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div id='textGroup' class='hero-unit'>
+                        <h2>Enter up to 5 phone numbers:</h2>
+                        <input type="text" name="caller1" id="caller1" placeholder="Number 1">
                         <br>
+                        <input type="text" name="caller2" id="caller2" placeholder="Number 2">
                     </div>
 
-                    <div id="selectDiv">
-                        <select name="states">
-                            <option value="1">Select state</option>
-                            <option value="1">California</option>
-                            <option value="0">Pennsylvania</option>
-                        </select>
+                    <div class="btn-toolbar">
+                        <div class="btn-group">
+                            <button class="btn btn-primary" type="submit" id='prank'>Prank!</button>
+                            <button class="btn btn-success" type="button" id="addCall" name="addCall">Add Call</button>
+                        </div>
                     </div>
 
-                </div>
-
-                <div id='textGroup' class='hero-unit'>
-                    <h2>Enter up to 5 phone numbers:</h2>
-                    <input type="text" name="caller1" id="caller1" placeholder="Number 1">
-                    <br>
-                    <input type="text" name="caller2" id="caller2" placeholder="Number 2">
-                </div>
-
-                <div class="btn-toolbar">
-                    <div class="btn-group">
-                        <button class="btn btn-primary" type="submit" id='prank'>Prank!</button>
-                        <button class="btn btn-success" type="button" id="addCall" name="addCall">Add Call</button>
+                    <div>
+                        <input type="hidden" id="hidden3" name="caller3" value=""/>
+                        <input type="hidden" id="hidden4" name="caller4" value=""/>
+                        <input type="hidden" id="hidden5" name="caller5" value=""/>
                     </div>
                 </div>
 
-                <div>
-                    <input type="hidden" id="hidden3" name="caller3" value=""/>
-                    <input type="hidden" id="hidden4" name="caller4" value=""/>
-                    <input type="hidden" id="hidden5" name="caller5" value=""/>
-                </div>
-
-        </form>
-        <script src="/static/js/vendor/jquery-1.8.2.min.js" type="text/javascript"></script>
-        <script src="/static/js/bootstrap/bootstrap.js" type="text/javascript"></script>
-        <script type=text/javascript src="{{ url_for('static', filename='jquery.js') }}"></script>
-        {% endblock %}
-    </body>
-</html>
+            </form>
+            <script src="/static/js/vendor/jquery-1.8.2.min.js" type="text/javascript"></script>
+            <script src="/static/js/bootstrap/bootstrap.js" type="text/javascript"></script>
+            <script type=text/javascript src="{{ url_for('static', filename='jquery.js') }}"></script>
+            {% endblock %}
+        </body>
+    </html>
