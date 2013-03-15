@@ -7,38 +7,98 @@
 
         <link rel="stylesheet" href="/static/css/bootstrap.css" type="text/css" media="screen" title="master" charset="utf-8">
         <link rel="stylesheet" href="/static/css/bootstrap-responsive.css" type="text/css" media="screen" title="master" charset="utf-8">
+        <link rel="stylesheet" href="/static/style.css" type="text/css">
         <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
         <script type="text/javascript" src="/static/interactivity.js"></script>
-    </head>
+        <script type="text/javascript"
+            src="//static.twilio.com/libs/twiliojs/1.1/twilio.min.js"></script>
+        <script type="text/javascript">
 
-    <body style="background-image:url(static/imgs/escheresque.png);padding:5px;border:1px solid black;">
-        {% block content %}
-        <form name="form" method="POST" action="/prank">
-            <div class="container">
-                <h1 id="banner">Prank Roulette!</h1>
+            /* Create the Client with a Capability Token */
+        Twilio.Device.setup("{{ token }}");
 
-                <div id='userNumberDiv' class="hero-unit">
-                    <h2>What is your phone number?</h2>
-                    <h5> (Don't forget to turn your phone on mute when you receive the call!) </h5>
-                    <input type="text" name='userNumber' id='userNumber' placeholder="Your phone number to listen in">
-                    <br>
-                </div>
+        /* Let us know when the client is ready. */
+        Twilio.Device.ready(function (device) {
+                $("#log").text("Ready");
+                });
 
-                <div id='textGroup' class='hero-unit'>
-                    <h2>Enter up to 5 phone numbers:</h2>
-                    <input type="text" name="caller1" id="caller1" placeholder="Number 1">
-                </div>
+/* Report any errors on the screen */
+Twilio.Device.error(function (error) {
+        $("#log").text("Error: " + error.message);
+        });
 
-                <div class="btn-toolbar">
-                    <div class="btn-group">
-                        <button class="btn btn-primary" type="submit" id='prank'>Prank!</button>
-                        <button class="btn btn-success" type="button" id="addCall" name="addCall">Add Call</button>
+Twilio.Device.connect(function (conn) {
+        $("#log").text("Successfully established call");
+        });
+
+Twilio.Device.disconnect(function (conn) {
+        $("#log").text("Call ended");
+        });
+
+function call() {
+    //get the phone number to connect the call to
+    params = {"PhoneNumber1": $("#caller1").val(), "PhoneNumber2": $("#caller2").val(), "PhoneNumber3": $("#hidden3").val(), "PhoneNumber4": $("#hidden4").val(), "PhoneNumber5": $("#hidden5").val(), "State": $("#states").val()};
+    Twilio.Device.connect(params);
+}
+
+function hangup() {
+    Twilio.Device.disconnectAll();
+}
+</script>
+            </head>
+
+            <body>
+                {% block content %}
+                <div class="container">
+                    <h1 id="banner">Prank Roulette!</h1>
+
+                    <div id="buttonDiv">
+                        <button type="button" class="btn btn-primary" id="aboutButton">About</button>
                     </div>
-                </div>
-        </form>
-        <script src="/static/js/vendor/jquery-1.8.2.min.js" type="text/javascript"></script>
-        <script src="/static/js/bootstrap/bootstrap.js" type="text/javascript"></script>
-        <script type=text/javascript src="{{ url_for('static', filename='jquery.js') }}"></script>
-        {% endblock %}
-    </body>
-</html>
+
+                    <div id="about" class="hero-unit">
+                        <p>
+                        <h5>PrankRoulette allows you to set up 2-5 numbers on a conference call and listen in on the results!  Put together two restaurants, two old friends, or even your friend and his/her ex! The best part? They have no idea who is calling them - all they see is an incoming call from PA or CA.
+                            <br>
+                            Disclaimer: PrankRoulette, and its developers take no responsibility for the fallout of your actions. That is on YOU! Please prank responsibly.</h5>
+                        </p>
+                    </div>
+                    <div id="everythingElse">
+                        <div id="log">Loading...</div>
+                        <div id='textGroup' class='hero-unit'>
+                            <div id="selectDiv">
+                                <select id="states" name="states">
+                                    <option value="1">Select state</option>
+                                    <option value="1">California</option>
+                                    <option value="0">Pennsylvania</option>
+                                </select>
+                            </div>
+
+                            <h2>Enter up to 5 phone numbers:</h2>
+                            <input type="text" name="number1" id="caller1" placeholder="Number 1">
+                            <br>
+                            <input type="text" name="number2" id="caller2" placeholder="Number 2">
+                        </div>
+
+                        <div class="btn-toolbar">
+                            <div class="btn-group">
+                                <button class="btn btn-primary" onclick="call();" type="submit" id='prank'>Prank!</button>
+                                <button class="btn btn-success" type="button" id="addCall" name="addCall">Add Call</button>
+                                <button class="hangup" onclick="hangup();">
+                                    Hangup
+                                </button>
+                            </div>
+                        </div>
+
+                        <div>
+                            <input type="hidden" id="hidden3" name="number3" value=""/>
+                            <input type="hidden" id="hidden4" name="number4" value=""/>
+                            <input type="hidden" id="hidden5" name="number5" value=""/>
+                        </div>
+                    </div>
+                    <script src="/static/js/vendor/jquery-1.8.2.min.js" type="text/javascript"></script>
+                    <script src="/static/js/bootstrap/bootstrap.js" type="text/javascript"></script>
+                    <script type=text/javascript src="{{ url_for('static', filename='jquery.js') }}"></script>
+                    {% endblock %}
+                </body>
+            </html>
