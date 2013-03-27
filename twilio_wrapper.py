@@ -2,8 +2,8 @@
 from twilio.rest import TwilioRestClient
 
 # Get these credentials from http://twilio.com/user/account
-account_sid = "Dont worry"
-auth_token = "Nothing to see here"
+account_sid = "AC566da319c49345fe4fbbbea81ada1de0"
+auth_token = "741080b04bcb6c2471cf9439d939abce"
 client = TwilioRestClient(account_sid, auth_token)
 room_number = 0
 
