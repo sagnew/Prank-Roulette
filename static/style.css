@@ -3,3 +3,10 @@ body{
     padding:5px;
     border:1px solid black;
 }
+
+.custom-hero{
+    padding:2px;
+    border:2px solid gray;
+    background:rgba(0, 0, 0, 0.4);
+    position:relative;
+}
