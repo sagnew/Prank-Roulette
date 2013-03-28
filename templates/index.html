@@ -24,8 +24,8 @@
 
         /* Report any errors on the screen */
         Twilio.Device.error(function (error) {
-                $("#log").text("Error: " + error.message);
-                });
+            $("#log").text("Error: " + error.message);
+            });
 
         Twilio.Device.connect(function (conn) {
                 $("#log").text("Successfully established call");
@@ -51,41 +51,51 @@
                 {% block content %}
                 <div class="container">
 
-                    <div id="logoDiv" align="center">
-                        <img src="/static/imgs/pranklogo.png"></img>
-                    </div>
-
-                    <div class="span3">
-                    </div>
-
-                    <div id="everythingElse" class="span6">
-                        <div id="log">Loading...</div>
-                        <div id='textGroup' class='hero-unit'>
-                            <div id="selectDiv">
-                                <select id="states" name="states">
-                                    <option value="1">Select state</option>
-                                    <option value="1">California</option>
-                                    <option value="0">Pennsylvania</option>
-                                </select>
-                            </div>
-
-                            <h2>Enter up to 5 phone numbers:</h2>
-                            <input type="text" name="number1" id="caller1" placeholder="Number 1">
-                            <br>
-                            <input type="text" name="number2" id="caller2" placeholder="Number 2">
+                    <div class="row">
+                        <div class="span2">
                         </div>
 
-                    <div class="span3">
+                        <div id="logoDiv" class="span8" align="center">
+                            <img src="/static/imgs/pranklogo.png"></img>
+                        </div>
+
                     </div>
 
-                        <div class="btn-toolbar">
+                    <div class="row">
+
+                        <div class="span3">
+                        </div>
+
+                        <div id="everythingElse" class="span6">
+                            <div id="log">Loading...</div>
+                            <div id='textGroup' class='hero-unit'>
+                                <div id="selectDiv">
+                                    <select id="states" name="states">
+                                        <option value="1">Select state</option>
+                                        <option value="1">California</option>
+                                        <option value="0">Pennsylvania</option>
+                                    </select>
+                                </div>
+
+                                <h2>Enter up to 5 phone numbers:</h2>
+                                <input type="text" name="number1" id="caller1" placeholder="Number 1">
+                                <br>
+                                <input type="text" name="number2" id="caller2" placeholder="Number 2">
+                            </div>
+
+                        </div>
+
+                        <div class="row" align="center">
+
+                            <div class="span3">
+                            </div>
+
                             <div class="btn-group">
                                 <button class="btn btn-primary" onclick="call();" type="submit" id='prank'>Prank!</button>
                                 <button class="btn btn-success" type="button" id="addCall" name="addCall">Add Call</button>
-                                <button class="hangup" onclick="hangup();">
-                                    Hangup
-                                </button>
+                                <button class="hangup" onclick="hangup();"> Hangup</button>
                             </div>
+
                         </div>
 
                         <div>
