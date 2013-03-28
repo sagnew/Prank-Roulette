@@ -22,29 +22,29 @@
                 $("#log").text("Ready");
                 });
 
-/* Report any errors on the screen */
-Twilio.Device.error(function (error) {
-        $("#log").text("Error: " + error.message);
-        });
+        /* Report any errors on the screen */
+        Twilio.Device.error(function (error) {
+                $("#log").text("Error: " + error.message);
+                });
 
-Twilio.Device.connect(function (conn) {
-        $("#log").text("Successfully established call");
-        });
+        Twilio.Device.connect(function (conn) {
+                $("#log").text("Successfully established call");
+                });
 
-Twilio.Device.disconnect(function (conn) {
-        $("#log").text("Call ended");
-        });
+        Twilio.Device.disconnect(function (conn) {
+                $("#log").text("Call ended");
+                });
 
-function call() {
-    //get the phone number to connect the call to
-    params = {"PhoneNumber1": $("#caller1").val(), "PhoneNumber2": $("#caller2").val(), "PhoneNumber3": $("#hidden3").val(), "PhoneNumber4": $("#hidden4").val(), "PhoneNumber5": $("#hidden5").val(), "State": $("#states").val()};
-    Twilio.Device.connect(params);
-}
+        function call() {
+            //get the phone number to connect the call to
+            params = {"PhoneNumber1": $("#caller1").val(), "PhoneNumber2": $("#caller2").val(), "PhoneNumber3": $("#hidden3").val(), "PhoneNumber4": $("#hidden4").val(), "PhoneNumber5": $("#hidden5").val(), "State": $("#states").val()};
+            Twilio.Device.connect(params);
+        }
 
-function hangup() {
-    Twilio.Device.disconnectAll();
-}
-</script>
+        function hangup() {
+            Twilio.Device.disconnectAll();
+        }
+        </script>
             </head>
 
             <body>
@@ -56,13 +56,6 @@ function hangup() {
                         <button type="button" class="btn btn-primary" id="aboutButton">About</button>
                     </div>
 
-                    <div id="about" class="hero-unit">
-                        <p>
-                        <h5>PrankRoulette allows you to set up 2-5 numbers on a conference call and listen in on the results!  Put together two restaurants, two old friends, or even your friend and his/her ex! The best part? They have no idea who is calling them - all they see is an incoming call from PA or CA.
-                            <br>
-                            Disclaimer: PrankRoulette, and its developers take no responsibility for the fallout of your actions. That is on YOU! Please prank responsibly.</h5>
-                        </p>
-                    </div>
                     <div id="everythingElse">
                         <div id="log">Loading...</div>
                         <div id='textGroup' class='hero-unit'>

@@ -77,28 +77,6 @@ def voice():
     return str(resp)
 
 
-#@app.route('/prank', methods=['POST', 'GET'])
-#def prank():
-#    userNumber = request.form['userNumber']
-#    call1 = request.form['caller1']
-#    call2 = request.form['caller2']
-#    call3 = request.form['caller3']
-#    call4 = request.form['caller4']
-#    call5 = request.form['caller5']
-#    potentialCallers = [userNumber, call1, call2, call3, call4, call5]
-#    callers = []
-#    state = request.form['states']
-#
-#    for caller in potentialCallers:
-#        if not caller == "":
-#            callers.append(str(caller))
-#
-#    print callers
-#    print state
-#    #twilio_wrapper.setUpCall(int(state), callers)
-#    return render_template('prank.html')
-#
-
 @app.route('/donate', methods=['POST', 'GET'])
 def donate():
     return render_template('index.html')
