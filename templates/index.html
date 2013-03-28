@@ -22,29 +22,29 @@
                 $("#log").text("Ready");
                 });
 
-/* Report any errors on the screen */
-Twilio.Device.error(function (error) {
-        $("#log").text("Error: " + error.message);
-        });
+        /* Report any errors on the screen */
+        Twilio.Device.error(function (error) {
+                $("#log").text("Error: " + error.message);
+                });
 
-Twilio.Device.connect(function (conn) {
-        $("#log").text("Successfully established call");
-        });
+        Twilio.Device.connect(function (conn) {
+                $("#log").text("Successfully established call");
+                });
 
-Twilio.Device.disconnect(function (conn) {
-        $("#log").text("Call ended");
-        });
+        Twilio.Device.disconnect(function (conn) {
+                $("#log").text("Call ended");
+                });
 
-function call() {
-    //get the phone number to connect the call to
-    params = {"PhoneNumber1": $("#caller1").val(), "PhoneNumber2": $("#caller2").val(), "PhoneNumber3": $("#hidden3").val(), "PhoneNumber4": $("#hidden4").val(), "PhoneNumber5": $("#hidden5").val(), "State": $("#states").val()};
-    Twilio.Device.connect(params);
-}
+        function call() {
+            //get the phone number to connect the call to
+            params = {"PhoneNumber1": $("#caller1").val(), "PhoneNumber2": $("#caller2").val(), "PhoneNumber3": $("#hidden3").val(), "PhoneNumber4": $("#hidden4").val(), "PhoneNumber5": $("#hidden5").val(), "State": $("#states").val()};
+            Twilio.Device.connect(params);
+        }
 
-function hangup() {
-    Twilio.Device.disconnectAll();
-}
-</script>
+        function hangup() {
+            Twilio.Device.disconnectAll();
+        }
+        </script>
             </head>
 
             <body>
