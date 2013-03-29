@@ -17,24 +17,6 @@
             /* Create the Client with a Capability Token */
         Twilio.Device.setup("{{ token }}");
 
-        /* Let us know when the client is ready. */
-        Twilio.Device.ready(function (device) {
-                $("#log").text("Ready");
-                });
-
-        /* Report any errors on the screen */
-        Twilio.Device.error(function (error) {
-            $("#log").text("Error: " + error.message);
-            });
-
-        Twilio.Device.connect(function (conn) {
-                $("#log").text("Successfully established call");
-                });
-
-        Twilio.Device.disconnect(function (conn) {
-                $("#log").text("Call ended");
-                });
-
         function call() {
             //get the phone number to connect the call to
             params = {"PhoneNumber1": $("#caller1").val(), "PhoneNumber2": $("#caller2").val(), "PhoneNumber3": $("#hidden3").val(), "PhoneNumber4": $("#hidden4").val(), "PhoneNumber5": $("#hidden5").val(), "State": $("#states").val()};
@@ -66,8 +48,7 @@
                 <div class="span3">
                 </div>
 
-                <div id="everythingElse" class="span6">
-                    <div id="log">Loading...</div>
+                <div id="everythingElse" class="span6" align="center">
                     <div id='textGroup' class='custom-hero'>
                         <div id="selectDiv">
                             <select id="states" name="states">
@@ -88,9 +69,9 @@
                     <br>
 
                     <div class="btn-group" align="center">
-                        <button class="btn btn-primary" onclick="call();" type="submit" id='prank'>Prank!</button>
+                        <button class="btn btn-primary" onclick="call();" type="submit" id='prank'>Prank</button>
                         <button class="btn btn-success" type="button" id="addCall" name="addCall">Add Call</button>
-                        <button class="hangup" onclick="hangup();"> Hangup</button>
+                        <button class="hangup btn btn-warning" onclick="hangup();"> Hangup</button>
                     </div>
 
                 </div>
