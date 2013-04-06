@@ -11,3 +11,12 @@ body{
     background:rgba(0, 0, 0, 0.2);
     position:relative;
 }
+
+.numbers {
+    margin-top: 50px;
+    list-style-type: none;
+}
+
+.phone-buttons {
+    margin-top: 10px;
+}
