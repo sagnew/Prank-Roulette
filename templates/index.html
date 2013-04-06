@@ -34,8 +34,6 @@
         <div class="container">
 
             <div class="row">
-                <div class="span2">
-                </div>
 
                 <div id="logoDiv" class="span8" align="center">
                     <img src="/static/imgs/pranklogo.png"></img>
@@ -45,11 +43,7 @@
 
             <div class="row">
 
-                <div class="span3">
-                </div>
-
                 <div id="everythingElse" class="span6" align="center">
-
                     <div id='textGroup' class='custom-hero'>
                         <div id="selectDiv">
                             <select id="states" name="states">
@@ -60,14 +54,11 @@
                         </div>
 
                         <h2>Enter up to 5 phone numbers:</h2>
-                        <input type="text" name="number1" id="caller1" placeholder="Number 1">
-                        <br>
-                        <input type="text" name="number2" id="caller2" placeholder="Number 2">
+                        <ul class="numbers">
+                            <li><input type="text" name="number1" id="caller1" placeholder="Number 1"></li>
+                            <li><input type="text" name="number2" id="caller2" placeholder="Number 2"></li>
+                        </ul>
                     </div>
-
-                    <div class="span3">
-                    </div>
-                    <br>
 
                     <div class="btn-group" align="center">
                         <button class="btn btn-primary" onclick="call();" type="submit" id='prank'>Prank</button>
@@ -78,9 +69,11 @@
                 </div>
 
                 <div>
-                    <input type="hidden" id="hidden3" name="number3" value=""/>
-                    <input type="hidden" id="hidden4" name="number4" value=""/>
-                    <input type="hidden" id="hidden5" name="number5" value=""/>
+                    <ul>
+                        <li><input type="hidden" id="hidden3" name="number3" value=""/></li>
+                        <li><input type="hidden" id="hidden4" name="number4" value=""/></li>
+                        <li><input type="hidden" id="hidden5" name="number5" value=""/></li>
+                    </ul>
                 </div>
             </div>
             <script src="/static/js/vendor/jquery-1.8.2.min.js" type="text/javascript"></script>
