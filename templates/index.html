@@ -15,17 +15,17 @@
         <script type="text/javascript">
 
             /* Create the Client with a Capability Token */
-        Twilio.Device.setup("{{ token }}");
+            Twilio.Device.setup("{{ token }}");
 
-        function call() {
-            //get the phone number to connect the call to
-            params = {"PhoneNumber1": $("#caller1").val(), "PhoneNumber2": $("#caller2").val(), "PhoneNumber3": $("#hidden3").val(), "PhoneNumber4": $("#hidden4").val(), "PhoneNumber5": $("#hidden5").val(), "State": $("#states").val()};
-            Twilio.Device.connect(params);
-        }
+            function call() {
+                //get the phone number to connect the call to
+                params = {"PhoneNumber1": $("#caller1").val(), "PhoneNumber2": $("#caller2").val(), "PhoneNumber3": $("#hidden3").val(), "PhoneNumber4": $("#hidden4").val(), "PhoneNumber5": $("#hidden5").val(), "State": $("#states").val()};
+                Twilio.Device.connect(params);
+            }
 
-        function hangup() {
-            Twilio.Device.disconnectAll();
-        }
+            function hangup() {
+                Twilio.Device.disconnectAll();
+            }
         </script>
     </head>
 
@@ -60,9 +60,9 @@
                         </div>
 
                         <h2>Enter up to 5 phone numbers:</h2>
-                            <input type="text" name="number1" id="caller1" placeholder="Number 1">
-                            <br>
-                            <input type="text" name="number2" id="caller2" placeholder="Number 2">
+                        <input type="text" name="number1" id="caller1" placeholder="Number 1">
+                        <br>
+                        <input type="text" name="number2" id="caller2" placeholder="Number 2">
                     </div>
 
                     <div class="btn-group" align="center">
