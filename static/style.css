@@ -4,8 +4,11 @@ body{
     border:1px solid black;
 }
 
+h2 {
+    color:white;
+}
+
 .custom-hero{
-    text-color: white;
     padding: 30px;
     border-radius:20px;
     border:2px solid gray;
