@@ -22,8 +22,8 @@ error = """<?xml version="1.0" encoding="UTF-8" ?>
 @app.route('/')
 def main_page():
     """Respond to incoming requests."""
-    account_sid = ""
-    auth_token = ""
+    account_sid = "AC566da319c49345fe4fbbbea81ada1de0"
+    auth_token = "741080b04bcb6c2471cf9439d939abce"
 
     capability = TwilioCapability(account_sid, auth_token)
 
