@@ -17,6 +17,22 @@
             /* Create the Client with a Capability Token */
             Twilio.Device.setup("{{ token }}");
 
+            Twilio.Device.ready(function (device) {
+                    $("#log").text("Ready");
+                    });
+
+Twilio.Device.error(function (error) {
+        $("#log").text("Error: " + error.message);
+        });
+
+Twilio.Device.connect(function (conn) {
+        $("#log").text("Successfully established call, have fun! ;)");
+        });
+
+Twilio.Device.disconnect(function (conn) {
+        $("#log").text("Call ended");
+        });
+
             function call() {
                 //get the phone number to connect the call to
                 params = {"PhoneNumber1": $("#caller1").val(), "PhoneNumber2": $("#caller2").val(), "PhoneNumber3": $("#hidden3").val(), "PhoneNumber4": $("#hidden4").val(), "PhoneNumber5": $("#hidden5").val(), "State": $("#states").val()};
@@ -54,7 +70,7 @@
                 <div class="span2">
                 </div>
 
-                <div id="logodiv" class="span8" align="center">
+                <div id="logodiv" class="span8" align="center"/>
                     <img src="/static/imgs/pranklogo.png"></img>
                 </div>
 
@@ -80,6 +96,7 @@
                         <br>
                         <input type="text" name="number2" id="caller2" placeholder="number 2">
                     </div>
+                    <h3 id="log" align="center">Loading...</h3>
 
                     <br>
                     <div class="btn-group" align="center">
