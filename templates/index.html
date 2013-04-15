@@ -21,17 +21,17 @@
                     $("#log").text("Ready");
                     });
 
-Twilio.Device.error(function (error) {
-        $("#log").text("Error: " + error.message);
-        });
+            Twilio.Device.error(function (error) {
+                    $("#log").text("Error: " + error.message);
+                    });
 
-Twilio.Device.connect(function (conn) {
-        $("#log").text("Successfully established call, have fun! ;)");
-        });
+            Twilio.Device.connect(function (conn) {
+                    $("#log").text("Successfully established call, have fun! ;)");
+                    });
 
-Twilio.Device.disconnect(function (conn) {
-        $("#log").text("Call ended");
-        });
+            Twilio.Device.disconnect(function (conn) {
+                    $("#log").text("Call ended");
+                    });
 
             function call() {
                 //get the phone number to connect the call to
