@@ -31,13 +31,14 @@
         <script type="text/javascript">
 
             var _gaq = _gaq || [];
-            _gaq.push(['_setAccount', 'UA-40159257-1']);
-            _gaq.push(['_trackPageview']);
+            _gaq.push(['_setaccount', 'ua-40159257-1']);
+            _gaq.push(['_setdomainname', 'prankroulette.com']);
+            _gaq.push(['_trackpageview']);
 
             (function() {
-             var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+             var ga = document.createelement('script'); ga.type = 'text/javascript'; ga.async = true;
              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+             var s = document.getelementsbytagname('script')[0]; s.parentnode.insertbefore(ga, s);
              })();
 
         </script>
@@ -53,7 +54,7 @@
                 <div class="span2">
                 </div>
 
-                <div id="logoDiv" class="span8" align="center">
+                <div id="logodiv" class="span8" align="center">
                     <img src="/static/imgs/pranklogo.png"></img>
                 </div>
 
@@ -64,45 +65,45 @@
                 <div class="span3">
                 </div>
 
-                <div id="everythingElse" class="span6" align="center">
-                    <div id='textGroup' class='custom-hero'>
-                        <div id="selectDiv">
+                <div id="everythingelse" class="span6" align="center">
+                    <div id='textgroup' class='custom-hero'>
+                        <div id="selectdiv">
                             <select id="states" name="states">
-                                <option value="1">Select state</option>
-                                <option value="1">California</option>
-                                <option value="0">Pennsylvania</option>
+                                <option value="1">select state</option>
+                                <option value="1">california</option>
+                                <option value="0">pennsylvania</option>
                             </select>
                         </div>
 
-                        <h2>Enter up to 5 phone numbers:</h2>
-                        <input type="text" name="number1" id="caller1" placeholder="Number 1">
+                        <h2>enter up to 5 phone numbers:</h2>
+                        <input type="text" name="number1" id="caller1" placeholder="number 1">
                         <br>
-                        <input type="text" name="number2" id="caller2" placeholder="Number 2">
+                        <input type="text" name="number2" id="caller2" placeholder="number 2">
                     </div>
 
                     <br>
                     <div class="btn-group" align="center">
-                        <button class="btn btn-primary" onclick="call();" type="submit" id='prank'>Prank</button>
-                        <button class="btn btn-success" type="button" id="addCall" name="addCall">Add Call</button>
-                        <button class="hangup btn btn-warning" onclick="hangup();"> Hangup</button>
+                        <button class="btn btn-primary" onclick="call();" type="submit" id='prank'>prank</button>
+                        <button class="btn btn-success" type="button" id="addcall" name="addcall">add call</button>
+                        <button class="hangup btn btn-warning" onclick="hangup();"> hangup</button>
                     </div>
                     <br>
                     <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                         <input type="hidden" name="cmd" value="_donations">
                         <input type="hidden" name="business" value="prankroulette123@gmail.com">
-                        <input type="hidden" name="lc" value="US">
-                        <input type="hidden" name="item_name" value="PrankRoulette">
+                        <input type="hidden" name="lc" value="us">
+                        <input type="hidden" name="item_name" value="prankroulette">
                         <input type="hidden" name="no_note" value="0">
-                        <input type="hidden" name="currency_code" value="USD">
-                        <input type="hidden" name="bn" value="PP-DonationsBF:btn_donateCC_LG.gif:NonHostedGuest">
-                        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-                        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                        <input type="hidden" name="currency_code" value="usd">
+                        <input type="hidden" name="bn" value="pp-donationsbf:btn_donatecc_lg.gif:nonhostedguest">
+                        <input type="image" src="https://www.paypalobjects.com/en_us/i/btn/btn_donatecc_lg.gif" border="0" name="submit" alt="paypal - the safer, easier way to pay online!">
+                        <img alt="" border="0" src="https://www.paypalobjects.com/en_us/i/scr/pixel.gif" width="1" height="1">
                     </form>
                     <br>
                     <p text-align="center">
-                        By <a href="http://github.com/sagnew">Sam Agnew</a> and <a href="http://github.com/thekenner33">Kenny Bambridge</a>
+                        by <a href="http://github.com/sagnew">sam agnew</a> and <a href="http://github.com/thekenner33">kenny bambridge</a>
                         <br>
-                        <a href="https://github.com/sagnew/Prank-Roulette">View source on Github</a>
+                        <a href="https://github.com/sagnew/prank-roulette">view source on github</a>
                     </p>
                 </div>
 
