@@ -4,25 +4,7 @@ $(document).ready(function(){
 
     var $addCall = $('#addCall');
     var $textGroup = $('#textGroup');
-    var $about = $('#about');
-    var $aboutButton = $('#aboutButton');
     var $everythingElse = $('#everythingElse');
-
-    $about.hide();
-
-    $aboutButton.on('click', function(){
-        if($everythingElse.is(":visible")){
-            $everythingElse.fadeToggle('slow');
-            setTimeout(function(){
-                $about.fadeToggle('slow');
-            }, 500);
-        }else{
-            $about.fadeToggle('slow');
-            setTimeout(function(){
-                $everythingElse.fadeToggle('slow');
-            }, 500);
-        }
-    });
 
     $addCall.click(function(){
 
