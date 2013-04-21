@@ -19,7 +19,7 @@ error = """<?xml version="1.0" encoding="UTF-8" ?>
         """
 
 
-@app.route('/')
+@app.route('/', methods=['POST', 'GET'])
 def main_page():
     """Respond to incoming requests."""
     account_sid = "AC566da319c49345fe4fbbbea81ada1de0"
@@ -36,7 +36,7 @@ def main_page():
     return render_template('index.html', token=token)
 
 
-@app.route('/voice')
+@app.route('/voice', methods=['POST', 'GET'])
 def voice():
     number1 = request.values.get('PhoneNumber1', None)
     number2 = request.values.get('PhoneNumber2', None)
