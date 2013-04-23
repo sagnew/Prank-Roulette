@@ -73,8 +73,6 @@
 
             </div>
 
-            <br>
-
             <div class="row" class="span6 offset3">
 
                 <div id="everythingelse" align="center">
@@ -101,29 +99,31 @@
                             <input type="text" name="number2" id="caller2" placeholder="number 2">
                         </div>
                     </div>
-                    <p>
-                        <h2 id="log" align="center">Loading...</h2>
-                    </p>
-
-                    <br>
-                    <div class="btn-group" align="center">
-                        <button class="btn btn-primary" onclick="call();" type="submit" id='prank'>prank</button>
-                        <button class="hangup btn btn-warning" onclick="hangup();">hangup</button>
+                    <div class="row">
+                        <p>
+                            <h2 id="log" align="center">Loading...</h2>
+                        </p>
                     </div>
-                    <br>
-                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                        <input type="hidden" name="cmd" value="_donations">
-                        <input type="hidden" name="business" value="prankroulette123@gmail.com">
-                        <input type="hidden" name="lc" value="US">
-                        <input type="hidden" name="item_name" value="Prankroulette">
-                        <input type="hidden" name="no_note" value="0">
-                        <input type="hidden" name="currency_code" value="USD">
-                        <input type="hidden" name="bn" value="PP-DonationsBF:btn_donateCC_LG.gif:NonHostedGuest">
-                        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-                        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-                    </form>
 
-                    <br>
+                    <div class="row">
+                        <div class="btn-group" align="center">
+                            <button class="btn btn-primary" onclick="call();" type="submit" id='prank'>prank</button>
+                            <button class="hangup btn btn-warning" onclick="hangup();">hangup</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                            <input type="hidden" name="cmd" value="_donations">
+                            <input type="hidden" name="business" value="prankroulette123@gmail.com">
+                            <input type="hidden" name="lc" value="US">
+                            <input type="hidden" name="item_name" value="Prankroulette">
+                            <input type="hidden" name="no_note" value="0">
+                            <input type="hidden" name="currency_code" value="USD">
+                            <input type="hidden" name="bn" value="PP-DonationsBF:btn_donateCC_LG.gif:NonHostedGuest">
+                            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                        </form>
+                    </div>
                     <p text-align="center">
                         By <a href="http://github.com/sagnew">Sam Agnew</a>, <a href="http://github.com/thekenner33">Kenny Bambridge</a> and <a href="http://github.com/ilozinski">Ian Lozinski</a>
                         <br>
