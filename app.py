@@ -19,7 +19,7 @@ error = """<?xml version="1.0" encoding="UTF-8" ?>
         """
 
 
-@app.route('/')
+@app.route('/', methods=['POST', 'GET'])
 def main_page():
     """Respond to incoming requests."""
     account_sid = os.environ.get("ACCOUNT_SID")
@@ -36,13 +36,10 @@ def main_page():
     return render_template('index.html', token=token)
 
 
-@app.route('/voice')
+@app.route('/voice', methods=['POST', 'GET'])
 def voice():
     number1 = request.values.get('PhoneNumber1', None)
     number2 = request.values.get('PhoneNumber2', None)
-    number3 = request.values.get('PhoneNumber3', None)
-    number4 = request.values.get('PhoneNumber4', None)
-    number5 = request.values.get('PhoneNumber5', None)
     state = int(request.values.get('State', None))
     #cid = request.values.get('state', None)
     resp = twilio.twiml.Response()
@@ -55,7 +52,7 @@ def voice():
 #'[0-9]{10}'
     room += 1
     numbers = []
-    theNums = [number1, number2, number3, number4, number5]
+    theNums = [number1, number2]
 
     for num in theNums:
         if num is not None and re.search('^[\d\(\)\- \+]+$', num):
