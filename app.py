@@ -22,14 +22,14 @@ error = """<?xml version="1.0" encoding="UTF-8" ?>
 @app.route('/', methods=['POST', 'GET'])
 def main_page():
     """Respond to incoming requests."""
-    account_sid = ""
-    auth_token = ""
+    account_sid = os.environ.get("ACCOUNT_SID")
+    auth_token = os.environ.get("AUTH_TOKEN")
 
     capability = TwilioCapability(account_sid, auth_token)
 
     # This is a special Quickstart application sid - or configure your own
     # at twilio.com/user/account/apps
-    application_sid = "APaf6c7ab08a32e7fb541a78d97d592100"
+    application_sid = os.environ.get("APP_SID")
     capability.allow_client_outgoing(application_sid)
     token = capability.generate()
 
