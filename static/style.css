@@ -23,6 +23,7 @@ h2 {
 
 .phone-buttons {
     margin-top: 10px;
+    position:relative;
 }
 
 p{
@@ -33,10 +34,12 @@ p{
     margin-top: 10px;
     margin-bottom 10px;
     padding: 10px;
+    position:relative;
 }
 
 .btn-group{
     margin-top: 10px;
     margin-bottom 10px;
     padding: 10px;
+    position:relative;
 }
