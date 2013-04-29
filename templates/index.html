@@ -1,20 +1,19 @@
-<!DOCTYPE>
+<!doctype html>
 <html>
     <head>
         <meta http-equiv="Content-type" content="text/html; charset=utf-8">
 
         <title>Prank Roulette</title>
 
-        <link rel="stylesheet" href="static/css/bootstrap.css" type="text/css" media="screen" title="master" charset="utf-8">
-        <link rel="stylesheet" href="static/css/bootstrap-responsive.css" type="text/css" media="screen" title="master" charset="utf-8">
-        <link rel="stylesheet" href="static/style.css" type="text/css">
+        <link rel="stylesheet" href="static/css/vendor/bootstrap.css" type="text/css" media="screen" title="master" charset="utf-8">
+        <link rel="stylesheet" href="static/css/vendor/bootstrap-responsive.css" type="text/css" media="screen" title="master" charset="utf-8">
+        <link rel="stylesheet" href="static/css/style.css" type="text/css">
         <link rel="icon" type="image/png" href="static/imgs/ico.png">
-        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-        <script type="text/javascript" src="/static/interactivity.js"></script>
-        <script type="text/javascript"
-            src="//static.twilio.com/libs/twiliojs/1.1/twilio.min.js"></script>
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script type="text/javascript" src="/static/js/interactivity.js"></script>
+        <script type="text/javascript" src="/static/js/ga.js"></script>
+        <script type="text/javascript" src="//static.twilio.com/libs/twiliojs/1.1/twilio.min.js"></script>
         <script type="text/javascript">
-
             /* Create the Client with a Capability Token */
             Twilio.Device.setup("{{ token }}");
 
@@ -44,96 +43,78 @@
                 Twilio.Device.disconnectAll();
             }
         </script>
-        <script type="text/javascript">
-
-            var _gaq = _gaq || [];
-            _gaq.push(['_setAccount', 'UA-40159257-1']);
-            _gaq.push(['_setDomainName', 'prankroulette.com']);
-            _gaq.push(['_trackPageview']);
-
-            (function() {
-             var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-             ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-             })();
-
-        </script>
     </head>
 
     <body>
-        {% block content %}
-        <div class="container">
+      {% block content %}
+      <div class="container">
+
+        <div class="row">
+          <div id="logodiv" class="span8 offset2" align="center"/>
+            <img src="/static/imgs/pranklogo.png" alt="Prank Logo">
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div id="everythingelse" class="span6 offset3" align="center">
+            <div id='textgroup' class='custom-hero'>
+              <div class="row">
+                <div id="selectdiv">
+                  <select id="states" name="states">
+                    <option value="1">Select state</option>
+                    <option value="1">California</option>
+                    <option value="0">Pennsylvania</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row">
+                <h2>Enter up to 5 phone numbers</h2>
+              </div>
+
+              <div class="row">
+                <input type="text" name="number1" id="caller1" placeholder="number 1">
+              </div>
+
+              <div class="row">
+                <input type="text" name="number2" id="caller2" placeholder="number 2">
+              </div>
+            </div>
 
             <div class="row">
-                <div id="logodiv" class="span8 offset2" align="center"/>
-                    <img src="/static/imgs/pranklogo.png"></img>
-                </div>
+              <h2 id="log" align="center">Loading...</h2>
+            </div>
+
+            <div class="row">
+              <div class="btn-group" align="center">
+                <button class="btn btn-primary" onclick="call();" type="submit" id='prank'>Prank</button>
+                <button class="hangup btn btn-warning" onclick="hangup();">Hangup</button>
+              </div>
             </div>
             <br>
             <div class="row">
-                <div id="everythingelse" class="span6 offset3" align="center">
-                    <div id='textgroup' class='custom-hero'>
-                        <div class="row">
-                            <div id="selectdiv">
-                                <select id="states" name="states">
-                                    <option value="1">Select state</option>
-                                    <option value="1">California</option>
-                                    <option value="0">Pennsylvania</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <h2>Enter up to 5 phone numbers</h2>
-                        </div>
-
-                        <div class="row">
-                            <input type="text" name="number1" id="caller1" placeholder="number 1">
-                        </div>
-
-                        <div class="row">
-                            <input type="text" name="number2" id="caller2" placeholder="number 2">
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <p>
-                            <h2 id="log" align="center">Loading...</h2>
-                        </p>
-                    </div>
-
-                    <div class="row">
-                        <div class="btn-group" align="center">
-                            <button class="btn btn-primary" onclick="call();" type="submit" id='prank'>Prank</button>
-                            <button class="hangup btn btn-warning" onclick="hangup();">Hangup</button>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                            <input type="hidden" name="cmd" value="_donations">
-                            <input type="hidden" name="business" value="prankroulette123@gmail.com">
-                            <input type="hidden" name="lc" value="US">
-                            <input type="hidden" name="item_name" value="Prankroulette">
-                            <input type="hidden" name="no_note" value="0">
-                            <input type="hidden" name="currency_code" value="USD">
-                            <input type="hidden" name="bn" value="PP-DonationsBF:btn_donateCC_LG.gif:NonHostedGuest">
-                            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-                            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-                        </form>
-                    </div>
-                    <div class="row">
-                        <p text-align="center">
-                            By <a href="http://github.com/sagnew">Sam Agnew</a>, <a href="http://github.com/thekenner33">Kenny Bambridge</a> and <a href="http://github.com/ilozinski">Ian Lozinski</a>
-                            <br>
-                            <a href="https://github.com/sagnew/prank-roulette">View source on Github</a>
-                        </p>
-                    </div>
-                </div>
+              <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <input type="hidden" name="cmd" value="_donations">
+                <input type="hidden" name="business" value="prankroulette123@gmail.com">
+                <input type="hidden" name="lc" value="US">
+                <input type="hidden" name="item_name" value="Prankroulette">
+                <input type="hidden" name="no_note" value="0">
+                <input type="hidden" name="currency_code" value="USD">
+                <input type="hidden" name="bn" value="PP-DonationsBF:btn_donateCC_LG.gif:NonHostedGuest">
+                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+              </form>
             </div>
-            <script src="/static/js/vendor/jquery-1.8.2.min.js" type="text/javascript"></script>
-            <script src="/static/js/bootstrap/bootstrap.js" type="text/javascript"></script>
-            <script type=text/javascript src="{{ url_for('static', filename='jquery.js') }}"></script>
-            {% endblock %}
-        </body>
-</html>
+            <div class="row">
+              <p>
+                By <a href="http://github.com/sagnew">Sam Agnew</a>, <a href="http://github.com/thekenner33">Kenny Bambridge</a> and <a href="http://github.com/ilozinski">Ian Lozinski</a>
+                <br>
+                <a href="https://github.com/sagnew/prank-roulette">View source on Github</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <script src="/static/js/vendor/bootstrap.js" type="text/javascript"></script>
+        {% endblock %}
+      </body>
+    </html>
