@@ -46,75 +46,76 @@
     </head>
 
     <body>
-      {% block content %}
-      <div class="container">
+        {% block content %}
+        <div class="container">
 
-        <div class="row">
-          <div id="logodiv" class="span8 offset2" align="center"/>
-            <img src="/static/imgs/pranklogo.png" alt="Prank Logo">
-          </div>
-        </div>
-        <br>
-        <div class="row">
-          <div id="everythingelse" class="span6 offset3" align="center">
-            <div id='textgroup' class='custom-hero'>
-              <div class="row">
-                <div id="selectdiv">
-                  <select id="states" name="states">
-                    <option value="1">Select state</option>
-                    <option value="1">California</option>
-                    <option value="0">Pennsylvania</option>
-                  </select>
+            <div class="row">
+                <div id="logodiv" class="span8 offset2" align="center"/>
+                    <img src="/static/imgs/pranklogo.png" alt="Prank Logo">
                 </div>
-              </div>
-
-              <div class="row">
-                <h2>Enter up to 5 phone numbers</h2>
-              </div>
-
-              <div class="row">
-                <input type="text" name="number1" id="caller1" placeholder="number 1">
-              </div>
-
-              <div class="row">
-                <input type="text" name="number2" id="caller2" placeholder="number 2">
-              </div>
-            </div>
-
-            <div class="row">
-              <h2 id="log" align="center">Loading...</h2>
-            </div>
-
-            <div class="row">
-              <div class="btn-group" align="center">
-                <button class="btn btn-primary" onclick="call();" type="submit" id='prank'>Prank</button>
-                <button class="hangup btn btn-warning" onclick="hangup();">Hangup</button>
-              </div>
             </div>
             <br>
             <div class="row">
-              <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                <input type="hidden" name="cmd" value="_donations">
-                <input type="hidden" name="business" value="prankroulette123@gmail.com">
-                <input type="hidden" name="lc" value="US">
-                <input type="hidden" name="item_name" value="Prankroulette">
-                <input type="hidden" name="no_note" value="0">
-                <input type="hidden" name="currency_code" value="USD">
-                <input type="hidden" name="bn" value="PP-DonationsBF:btn_donateCC_LG.gif:NonHostedGuest">
-                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" name="submit" alt="PayPal - The safer, easier way to pay online!">
-                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-              </form>
+                <div id="everythingelse" class="span6 offset3" align="center">
+                    <div id='textgroup' class='custom-hero'>
+                        <div class="row">
+                            <div id="selectdiv">
+                                <select id="states" name="states">
+                                    <option value="1">Select state</option>
+                                    <option value="1">California</option>
+                                    <option value="0">Pennsylvania</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <h2>Enter up to 5 phone numbers</h2>
+                        </div>
+
+                        <div class="row">
+                            <input type="text" name="number1" id="caller1" placeholder="number 1">
+                        </div>
+
+                        <div class="row">
+                            <input type="text" name="number2" id="caller2" placeholder="number 2">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <h2 id="log" align="center">Loading...</h2>
+                    </div>
+
+                    <div class="row">
+                        <div class="btn-group" align="center">
+                            <button class="btn btn-primary" onclick="call();" type="submit" id='prank'>Prank</button>
+                            <button class="hangup btn btn-warning" onclick="hangup();">Hangup</button>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                            <input type="hidden" name="cmd" value="_donations">
+                            <input type="hidden" name="business" value="prankroulette123@gmail.com">
+                            <input type="hidden" name="lc" value="US">
+                            <input type="hidden" name="item_name" value="Prankroulette">
+                            <input type="hidden" name="no_note" value="0">
+                            <input type="hidden" name="currency_code" value="USD">
+                            <input type="hidden" name="bn" value="PP-DonationsBF:btn_donateCC_LG.gif:NonHostedGuest">
+                            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                        </form>
+                    </div>
+                    <div class="row">
+                        <p>
+                        By <a href="http://github.com/sagnew">Sam Agnew</a>, <a href="http://github.com/thekenner33">Kenny Bambridge</a> and <a href="http://github.com/ilozinski">Ian Lozinski</a>
+                        <br>
+                        <a href="https://github.com/sagnew/prank-roulette">View source on Github</a>
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div class="row">
-              <p>
-                By <a href="http://github.com/sagnew">Sam Agnew</a>, <a href="http://github.com/thekenner33">Kenny Bambridge</a> and <a href="http://github.com/ilozinski">Ian Lozinski</a>
-                <br>
-                <a href="https://github.com/sagnew/prank-roulette">View source on Github</a>
-              </p>
-            </div>
-          </div>
         </div>
         <script src="/static/js/vendor/bootstrap.js" type="text/javascript"></script>
         {% endblock %}
-      </body>
-    </html>
+    </body>
+</html>
