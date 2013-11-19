@@ -39,6 +39,7 @@ Thumbs.db
 
 #Random Bullshit#
 #################
+constants.py
 *~
 *.pyc
 *.swp
