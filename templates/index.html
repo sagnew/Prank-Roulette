@@ -35,7 +35,7 @@
 
             function call() {
                 //get the phone number to connect the call to
-                params = {"PhoneNumber1": $("#caller1").val(), "PhoneNumber2": $("#caller2").val(), "PhoneNumber3": $("#hidden3").val(), "PhoneNumber4": $("#hidden4").val(), "PhoneNumber5": $("#hidden5").val(), "State": $("#states").val()};
+                params = {"PhoneNumber1": $("#caller1").val(), "PhoneNumber2": $("#caller2").val(), "State": $("#states").val()};
                 Twilio.Device.connect(params);
             }
 
@@ -61,8 +61,8 @@
                         <div class="row">
                             <div id="selectdiv">
                                 <select id="states" name="states">
-                                    <option value="1">Select state</option>
-                                    <option value="1">California</option>
+                                    <option value="0">Select state</option>
+                                    <option value="0">California</option>
                                     <option value="0">Pennsylvania</option>
                                 </select>
                             </div>

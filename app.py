@@ -29,7 +29,6 @@ def main_page():
 
     # This is a special Quickstart application sid - or configure your own
     # at twilio.com/user/account/apps
-    application_sid = os.environ.get("APP_SID")
     capability.allow_client_outgoing(application_sid)
     token = capability.generate()
 
