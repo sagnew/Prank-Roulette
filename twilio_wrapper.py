@@ -23,7 +23,7 @@ def setUpCall(from_state, numbers, room):
                 url="http://twimlets.com/conference?Name=" +
                 room + "&Message=%20")
 
-        return call.sid
+    return call.sid
 
 
 def killCall(call_id):
