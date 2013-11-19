@@ -1,14 +1,13 @@
 # Download the library from twilio.com/docs/libraries
 from twilio.rest import TwilioRestClient
 import os
+from constants import *
 
 # Get these credentials from http://twilio.com/user/account
-account_sid = "AC566da319c49345fe4fbbbea81ada1de0"
-auth_token = "741080b04bcb6c2471cf9439d939abce"
 client = TwilioRestClient(account_sid, auth_token)
 room_number = 0
 
-states = ['+14846854944', '+14159686840']
+states = ['+14846854944', '+14846854944']
 
 
 def setUpCall(from_state, numbers, room):
