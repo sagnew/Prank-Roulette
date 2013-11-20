@@ -17,7 +17,6 @@ def setUpCall(from_state, numbers, room):
     global client
 
     for num in numbers:
-        #num = cleanUpNum(num)
         call = client.calls.create(to="+1" + num,
                 from_=states[from_state],
                 url="http://twimlets.com/conference?Name=" +
