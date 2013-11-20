@@ -6,6 +6,7 @@ import twilio.twiml
 import twilio_wrapper as twrapper
 import os
 import re
+from constants import *
 
 app = Flask(__name__)
 
@@ -22,13 +23,8 @@ error = """<?xml version="1.0" encoding="UTF-8" ?>
 @app.route('/', methods=['POST', 'GET'])
 def main_page():
     """Respond to incoming requests."""
-    account_sid = os.environ.get("ACCOUNT_SID")
-    auth_token = os.environ.get("AUTH_TOKEN")
-
     capability = TwilioCapability(account_sid, auth_token)
 
-    # This is a special Quickstart application sid - or configure your own
-    # at twilio.com/user/account/apps
     capability.allow_client_outgoing(application_sid)
     token = capability.generate()
 
@@ -39,8 +35,7 @@ def main_page():
 def voice():
     number1 = request.values.get('PhoneNumber1', None)
     number2 = request.values.get('PhoneNumber2', None)
-    state = int(request.values.get('State', None))
-    #cid = request.values.get('state', None)
+    state = int(request.values.get('State', 0))
     resp = twilio.twiml.Response()
 
     global error
@@ -48,7 +43,6 @@ def voice():
     if room > 100000:
         room = 0
 
-#'[0-9]{10}'
     room += 1
     numbers = []
     theNums = [number1, number2]
@@ -58,9 +52,6 @@ def voice():
             numbers.append(num)
     if len(numbers) < 2:
         return error
-
-    for num in numbers:
-        print num
 
     # Nest <Client> TwiML inside of a <Dial> verb
     with resp.dial(callerId=caller_id[0]) as r:
