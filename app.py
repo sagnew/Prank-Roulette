@@ -1,11 +1,11 @@
-from flask import Flask
-from flask import render_template
-from flask import request
-from twilio.util import TwilioCapability
-import twilio.twiml
-import twilio_wrapper as twrapper
 import os
 import re
+
+import twilio.twiml
+from flask import Flask, render_template, request
+from twilio.util import TwilioCapability
+
+import twilio_wrapper as twrapper
 from constants import *
 
 app = Flask(__name__)
