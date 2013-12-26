@@ -43,3 +43,4 @@ Thumbs.db
 *.pyc
 *.swp
 venv
+constants.py
