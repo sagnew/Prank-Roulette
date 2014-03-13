@@ -4,9 +4,9 @@ import re
 import twilio.twiml
 from flask import Flask, render_template, request
 from twilio.util import TwilioCapability
+from werkzeug.contrib.fixers import ProxyFix
 
 import twilio_wrapper as twrapper
-from constants import *
 
 app = Flask(__name__)
 
@@ -18,6 +18,9 @@ error = """<?xml version="1.0" encoding="UTF-8" ?>
         <Say>Invalid Input</Say>
         </Response>
         """
+account_sid = os.environ.get('ACCOUNT_SID', None)
+auth_token = os.environ.get('AUTH_TOKEN', None)
+application_sid = os.environ.get('APP_SID', None)
 
 
 @app.route('/', methods=['POST', 'GET'])
@@ -67,6 +70,8 @@ def voice():
 @app.route('/donate', methods=['POST', 'GET'])
 def donate():
     return render_template('index.html')
+
+app.wsgi_app = ProxyFix(app.wsgi_app)
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))

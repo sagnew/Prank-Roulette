@@ -1,7 +1,10 @@
 # Download the library from twilio.com/docs/libraries
 from twilio.rest import TwilioRestClient
 import os
-from constants import *
+
+account_sid = os.environ.get('ACCOUNT_SID', None)
+auth_token = os.environ.get('AUTH_TOKEN', None)
+application_sid = os.environ.get('APP_SID', None)
 
 # Get these credentials from http://twilio.com/user/account
 client = TwilioRestClient(account_sid, auth_token)
