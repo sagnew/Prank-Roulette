@@ -10,7 +10,7 @@ application_sid = os.environ.get('APP_SID', None)
 client = TwilioRestClient(account_sid, auth_token)
 room_number = 0
 
-states = ['+14158771437', '+14846794074']
+states = ['', ''] # Add numbers here
 
 
 def setUpCall(from_state, numbers, room):
