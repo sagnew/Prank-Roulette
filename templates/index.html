@@ -12,35 +12,34 @@
         <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script type="text/javascript" src="/static/js/interactivity.js"></script>
         <script type="text/javascript" src="/static/js/ga.js"></script>
-        <script type="text/javascript" src="//static.twilio.com/libs/twiliojs/1.1/twilio.min.js"></script>
         <script type="text/javascript">
-            /* Create the Client with a Capability Token */
-            Twilio.Device.setup("{{ token }}");
-
-            Twilio.Device.ready(function (device) {
-                    $("#log").text("Ready");
-                    });
-
-            Twilio.Device.error(function (error) {
-                    $("#log").text("Error: " + error.message);
-                    });
-
-            Twilio.Device.connect(function (conn) {
-                    $("#log").text("Successfully established call, have fun! ;)");
-                    });
-
-            Twilio.Device.disconnect(function (conn) {
-                    $("#log").text("Call ended");
-                    });
+            $(document).ready(function() {
+                $("#log").text("Ready");
+            });
 
             function call() {
-                //get the phone number to connect the call to
-                params = {"PhoneNumber1": $("#caller1").val(), "PhoneNumber2": $("#caller2").val(), "State": $("#states").val()};
-                Twilio.Device.connect(params);
+                $("#log").text("Initiating prank call...");
+                var params = {
+                    "PhoneNumber1": $("#caller1").val(), 
+                    "PhoneNumber2": $("#caller2").val(), 
+                    "State": $("#states").val()
+                };
+                
+                $.ajax({
+                    url: '/makecall',
+                    type: 'POST',
+                    data: params,
+                    success: function(response) {
+                        $("#log").text("Calls initiated! Both parties will receive calls.");
+                    },
+                    error: function(xhr, status, error) {
+                        $("#log").text("Error: " + error);
+                    }
+                });
             }
 
             function hangup() {
-                Twilio.Device.disconnectAll();
+                $("#log").text("Hangup not implemented in simplified version");
             }
         </script>
     </head>

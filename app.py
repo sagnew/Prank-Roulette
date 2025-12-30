@@ -3,8 +3,7 @@ import re
 
 import twilio.twiml
 from flask import Flask, render_template, request
-from twilio.util import TwilioCapability
-from werkzeug.contrib.fixers import ProxyFix
+from werkzeug.middleware.proxy_fix import ProxyFix
 
 import twilio_wrapper as twrapper
 
@@ -26,12 +25,31 @@ application_sid = os.environ.get('APP_SID', None)
 @app.route('/', methods=['POST', 'GET'])
 def main_page():
     """Respond to incoming requests."""
-    capability = TwilioCapability(account_sid, auth_token)
+    return render_template('index.html')
 
-    capability.allow_client_outgoing(application_sid)
-    token = capability.generate()
 
-    return render_template('index.html', token=token)
+@app.route('/makecall', methods=['POST'])
+def make_call():
+    """Initiate the prank call."""
+    number1 = request.form.get('PhoneNumber1', None)
+    number2 = request.form.get('PhoneNumber2', None)
+    state = int(request.form.get('State', 0))
+    
+    if not number1 or not number2:
+        return "Error: Both phone numbers required", 400
+    
+    global room
+    if room > 100000:
+        room = 0
+    room += 1
+    
+    result = twrapper.setUpCall(state, [number1, number2], 'pr' + str(room))
+    
+    if result == -1:
+        return "Error setting up call", 500
+    
+    return {"status": "success", "message": "Calls initiated"}
+
 
 
 @app.route('/voice', methods=['POST', 'GET'])
@@ -51,7 +69,7 @@ def voice():
     theNums = [number1, number2]
 
     for num in theNums:
-        if num is not None and re.search('^[\d\(\)\- \+]+$', num):
+        if num is not None and re.search(r'^[\d\(\)\- \+]+$', num):
             numbers.append(num)
     if len(numbers) < 2:
         return error
